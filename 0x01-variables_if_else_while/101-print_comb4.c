@@ -7,19 +7,24 @@
  */
 int main(void)
 {
-	int n = 12;
-	int k;
-	int max = 790;
+	int n = 0;
+	int comb1, comb2, comb3;
+	int max = 1000;
 
 	do {
-		putchar(n / 100 + '0');
-		k = n % 100;
-		putchar(k / 10 + '0');
-		putchar(k % 10 + '0');
-		if (n < max - 1)
+		comb1 = n / 100;
+		comb2 = (n % 100) / 10;
+		comb3 = n % 10;
+		if (comb1 < comb2 && comb2 < comb3)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar(comb1 + '0');
+			putchar(comb2 + '0');
+			putchar(comb3 + '0');
+			if (n < max - 1)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
 		n++;
 	} while (n < max);
