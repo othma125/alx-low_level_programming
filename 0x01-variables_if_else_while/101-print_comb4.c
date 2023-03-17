@@ -20,7 +20,7 @@ int main(void)
 			putchar(comb1 + '0');
 			putchar(comb2 + '0');
 			putchar(comb3 + '0');
-			if (n < max - 1)
+			if (n < 24)
 			{
 				putchar(',');
 				putchar(' ');
