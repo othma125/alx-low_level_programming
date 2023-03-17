@@ -12,7 +12,7 @@ int main(void)
 
 	do {
 		if (n < 10)
-			putchar(n);
+			putchar(n + '0');
 		else
 		{
 			putchar(c);
