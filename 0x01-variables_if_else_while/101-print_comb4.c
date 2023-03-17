@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int n = 0;
+	int n = 12;
 	int k;
 	int max = 790;
 
