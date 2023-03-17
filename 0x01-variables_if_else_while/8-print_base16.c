@@ -8,11 +8,18 @@
 int main(void)
 {
 	int n = 0;
+	char c = 'a';
 
 	do {
-    putchar(c);
-    c++;
-  } while (c <= 'z');
-  putchar('\n');
-  return (0);
+		if (n < 10)
+			putchar(n);
+		else
+		{
+			putchar(c);
+			c++;
+		}
+		n++;
+	} while (n < 16);
+	putchar('\n');
+	return (0);
 }
