@@ -9,7 +9,7 @@ int main(void)
 {
 	int i, n = 98;
 
-	unsigned long int a, b, sum;
+	unsigned long a, b, sum;
 
 	for (i = 0; i < n ; i++)
 	{
