@@ -7,6 +7,7 @@ int print_sign(int n);
 void test_islower(int n);
 int _isalpha(int c);
 int _islower(int c);
+int _abs(int);
 int _putchar(char c);
 
 #endif
