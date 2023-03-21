@@ -10,6 +10,11 @@ int print_last_digit(int n)
 {
 	int modulo = n % 10;
 
-	_putchar(_abs(modulo));
-	return (_abs(modulo));
+	if (modulo < 0)
+	{
+		_putchar(-modulo);
+		return (-modulo);
+	}
+	_putchar(modulo);
+	return (modulo);
 }
