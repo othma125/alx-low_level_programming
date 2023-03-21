@@ -33,7 +33,7 @@ void print_to_98(int n)
 
 	for (i = n ; i != 98 ;)
 	{
-		print(i)
+		print(i);
 		_putchar(',');
 		_putchar(' ');
 		if (n <= 98)
