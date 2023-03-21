@@ -28,9 +28,9 @@ int main(void)
 		{
 			f_sum = a + b;
 			a = b;
-			b = sum;
+			b = f_sum;
 		}
-		if (f_sum <= max && i % 2 == 0)
+		if (f_sum <= max && f_sum % 2 == 0)
 			sum += f_sum;
 	}
 	printf("%ld", sum);
