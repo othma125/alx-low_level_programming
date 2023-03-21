@@ -31,7 +31,7 @@ int main(void)
 			a = b;
 			b = sum;
 		}
-		printf("%ul", sum);
+		printf("%lu", sum);
 		if (i != n - 1)
 			printf(", ");
 	}
