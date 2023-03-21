@@ -2,14 +2,17 @@
 
 /**
  * print - print an integer
- *
+ * @m: input condition
  * @n: input integer
  * Return: None
  */
-void print(int n)
+void print(int n, int m)
 {
-	_putchar(',');
-	_putchar(' ');
+	if (m == 1)
+	{
+		_putchar(',');
+		_putchar(' ');
+	}
 	if (n < 10)
 	{
 		_putchar(' ');
@@ -24,7 +27,7 @@ void print(int n)
 	}
 	else
 	{
-		print(n / 10);
+		print(n / 10, 0);
 		_putchar('0' + n % 10);
 	}
 }
@@ -50,7 +53,7 @@ void print_times_table(int n)
 			if (j == 0)
 				_putchar('0');
 			else
-				print(multiplication);
+				print(multiplication, 1);
 		}
 		_putchar('\n');
 	}
