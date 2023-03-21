@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-	int i;
+	int i, n = 50;
 	long int a, b, sum;
 
-	for (i = 0; i < 50 ; i++)
+	for (i = 0; i < n ; i++)
 	{
 		if (i == 0)
 		{
@@ -30,7 +30,9 @@ int main(void)
 			a = b;
 			b = sum;
 		}
-		printf("%ld, ", sum);
+		printf("%ld", sum);
+		if (i != n)
+			printf(", ");
 	}
 	return (0);
 }
