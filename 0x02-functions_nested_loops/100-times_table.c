@@ -28,11 +28,11 @@ void print(int n)
 	}
 }
 /**
- * times_table - check the code
+ * print_times_table - check the code
  * @n: input integer
  * Return: None.
  */
-void times_table(int n)
+void print_times_table(int n)
 {
 	int i, j, multiplication;
 
