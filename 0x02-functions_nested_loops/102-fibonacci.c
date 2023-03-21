@@ -34,5 +34,6 @@ int main(void)
 		if (i != n - 1)
 			printf(", ");
 	}
+	putchar('\n');
 	return (0);
 }
