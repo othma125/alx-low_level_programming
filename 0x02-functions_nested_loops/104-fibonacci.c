@@ -9,7 +9,7 @@ int main(void)
 {
 	int i, n = 98;
 
-	double a, b, sum;
+	unsigned long int a, b, sum;
 
 	for (i = 0; i < n ; i++)
 	{
@@ -31,7 +31,7 @@ int main(void)
 			a = b;
 			b = sum;
 		}
-		printf("%.0f", sum);
+		printf("%lu", sum);
 		if (i != n - 1)
 			printf(", ");
 	}
