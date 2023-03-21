@@ -7,7 +7,8 @@
  */
 int main(void)
 {
-	long long int i, a, b, sum;
+	int i;
+	long int a, b, sum;
 
 	for (i = 0; i < 50 ; i++)
 	{
@@ -29,6 +30,6 @@ int main(void)
 			a = b;
 			b = sum;
 		}
-		printf("%lld, ", sum);
+		printf("%ld, ", sum);
 	}
 }
