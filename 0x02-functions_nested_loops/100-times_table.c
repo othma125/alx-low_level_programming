@@ -21,7 +21,8 @@ void print(int n, int m)
 	}
 	else if (n < 100)
 	{
-		_putchar(' ');
+		if (m == 1)
+			_putchar(' ');
 		_putchar('0' + n / 10);
 		_putchar('0' + n % 10);
 	}
