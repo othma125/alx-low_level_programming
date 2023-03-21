@@ -9,6 +9,7 @@
 void print(int n)
 {
 	_putchar(',');
+	_putchar(' ');
 	if (n < 10)
 	{
 		_putchar(' ');
