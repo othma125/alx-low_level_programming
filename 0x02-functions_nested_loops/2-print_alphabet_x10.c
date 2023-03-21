@@ -3,12 +3,19 @@
 /**
  * print_alphabet_x10 - check the code.
  *
- * Return: Always 0.
+ * Return: None
  */
 void print_alphabet_x10(void)
 {
 	int i = 0;
+	char c;
 
 	for (; i < 10 ; i++)
-		print_alphabet();
+	{
+		c = 'a';
+		do {
+			_putchar(c);
+			c++;
+		} while (c <= 'z');
+	}
 }
