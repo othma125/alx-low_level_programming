@@ -5,6 +5,8 @@ void times_table(void);
 void jack_bauer(void);
 void print_alphabet_x10(void);
 void print_alphabet(void);
+void print_to_98(int n);
+int add(int, int);
 int print_sign(int n);
 void test_islower(int n);
 int _isalpha(int c);
