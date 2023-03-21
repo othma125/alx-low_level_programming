@@ -8,6 +8,12 @@
  */
 void print(int n)
 {
+	if (n < 0)
+	{
+		_putchar('-');
+		print(-n);
+		return;
+	}
 	if (n < 10)
 		_putchar('0' + n);
 	else if (n < 100)
