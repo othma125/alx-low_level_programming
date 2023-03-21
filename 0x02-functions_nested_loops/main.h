@@ -3,6 +3,7 @@
 
 void print_alphabet_x10(void);
 void print_alphabet(void);
+int print_sign(int n);
 void test_islower(int n);
 int _isalpha(int c);
 int _islower(int c);
