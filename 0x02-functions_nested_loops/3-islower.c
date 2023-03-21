@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _islower - check the code.
+ * _islower - function that print lower case
+ *@c: The number to be checked
  *
  * Return: true or false
  */
