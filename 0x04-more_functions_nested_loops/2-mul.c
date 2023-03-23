@@ -5,7 +5,7 @@
  * @a: first integer
  * @b: second integer
  *
- * Retrun: integer as a multiplication of two integers.
+ * Return: integer as a multiplication
  */
 int mul(int a, int b)
 {
