@@ -5,11 +5,11 @@
  * @n: input number
  * Return: true or false
  */
-int _isprime(int n)
+int _isprime(long int n)
 {
-	int i, flag = 1;
+	long int i;
 
-	for (i = 2; i <= n / 2; ++i)
+	for (i = 2; i <= n / 2; i++)
 	{
 		if (n % i == 0)
 			return (0);
@@ -22,14 +22,14 @@ int _isprime(int n)
  */
 int main(void)
 {
-	int i;
-	long n = 612852475143;
+	long int i;
+	long int n = 612852475143;
 
-	for (i = (int) sqrt(n); i > 2; i++)
+	for (i = n / 2; i >= 2; i--)
 	{
 		if (n % i == 0 && _isprime(i))
 		{
-			printf("%d\n", i);
+			printf("%ld\n", i);
 			break;
 		}
 	}
