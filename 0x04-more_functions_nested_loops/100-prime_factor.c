@@ -25,8 +25,8 @@ int _isprime(long int n)
  */
 int main(void)
 {
-	long int n = 612852475143;
-	int i, j = 0;
+	long int n = 612852475143, i;
+	int j = 0;
 
 	for (i = n / 2; i >= 2 ; i--)
 	{
