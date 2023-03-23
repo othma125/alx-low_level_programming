@@ -5,19 +5,16 @@
  * @n: input number
  * Return: true or false
  */
-int _isprime(long int n)
+int _isprime(int n)
 {
 	int i, flag = 1;
 
-	for (i = 2; i <= n / 2; i++)
+	for (i = 2; i <= n / 2; ++i)
 	{
 		if (n % i == 0)
-		{
-			flag = 0;
-			break;
-		}
+			return (0);
 	}
-	return (flag);
+	return (1);
 }
 /**
  * main - largest prime decomposition of an integer
@@ -25,19 +22,16 @@ int _isprime(long int n)
  */
 int main(void)
 {
-	long int n = 612852475143, i;
-	int j = 0;
+	int i;
+	long n = 612852475143;
 
-	for (i = n / 2; i >= 2 ; i--)
+	for (i = (int) sqrt(n); i > 2; i++)
 	{
-		if (n % i == 0 && _isprime(i) == 1)
+		if (n % i == 0 && _isprime(i))
 		{
-			printf("%ld\n", i);
-			j = i;
+			printf("%d\n", i);
 			break;
 		}
 	}
-	if (j == 0)
-		printf("%ld\n", n);
 	return (0);
 }
