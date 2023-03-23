@@ -22,16 +22,20 @@ int _isprime(long int n)
  */
 int main(void)
 {
-	long int i;
+	int largest = 2;
+	int i = 2;
 	long int n = 612852475143;
 
-	for (i = n / 2; i >= 2; i--)
+	while (i <= n / 2)
 	{
 		if (n % i == 0 && _isprime(i))
 		{
-			printf("%ld\n", i);
-			break;
+			while (n % i == 0)
+				n /= i;
+			largest = i;
 		}
+		i++;
 	}
+	printf("%d\n", largest);
 	return (0);
 }
