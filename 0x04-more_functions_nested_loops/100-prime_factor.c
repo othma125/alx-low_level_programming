@@ -32,7 +32,7 @@ int main(void)
 	{
 		if (n % i == 0 && _isprime(i) == 1)
 		{
-			printf("%d\n", i);
+			printf("%ld\n", i);
 			j = i;
 			break;
 		}
