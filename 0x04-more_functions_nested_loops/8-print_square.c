@@ -10,8 +10,8 @@ void print_square(int size)
 	int i, j = 0;
 	char c = '#';
 
-	for (j = 0; j < size; j++)
-	{
+	do {
+		j++;
 		i = 0;
 		while (i < size)
 		{
@@ -19,5 +19,5 @@ void print_square(int size)
 			i++;
 		}
 		_putchar('\n');
-	}
+	} while (j < size);
 }
