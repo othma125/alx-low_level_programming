@@ -25,7 +25,8 @@ int _atoi(char *s)
 		else
 		{
 			negative = 0;
-			n = 0;
+			if (n > 0)
+				break;
 		}
 		i++;
 	}
