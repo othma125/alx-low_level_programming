@@ -8,7 +8,7 @@
 char *cap_string(char *s)
 {
 	int i = 0, j;
-	int capitalize = 0;
+	int capitalize = 1;
 	char *characters = "\t \n,.(){};!?\"";
 
 	while (s[i] != '\0')
