@@ -7,16 +7,25 @@
  */
 void print_number(int n)
 {
+	int i = 1, m;
+
 	if (n < 0)
 	{
 		_putchar('-');
-		print_number(-n);
+		m = -n;
 	}
-	else if (n >= 10)
+	else if (n == 0)
 	{
-		print_number(n / 10);
-		print_number(n % 10);
+		_putchar('0');
+		return;
 	}
 	else
-		_putchar('0' + n);
+		m = n;
+	while (i <= m)
+		i *= 10;
+	do {
+		i /= 10;
+		_putchar('0' + m / i);
+		m = m % i;
+	} while (i > 1);
 }
