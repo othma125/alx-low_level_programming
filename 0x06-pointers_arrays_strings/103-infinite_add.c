@@ -37,7 +37,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[k] = '0' + n;
 	k++;
 	if (k >= size_r)
- 		return (0);
+		return (0);
 	r[k] = '\0';
 	i = 0;
 	j = strlen(r) - 1;
