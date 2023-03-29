@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * rot13 - check the code
@@ -13,9 +12,9 @@ char *rot13(char *s)
 	char *inputs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char *outputs = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (i < strlen(s))
+	while (s[i] != '\0')
 	{
-		for (j = 0; j < strlen(inputs); j++)
+		for (j = 0; inputs[j] != '\0'; j++)
 		{
 			if (s[i] == inputs[j])
 			{

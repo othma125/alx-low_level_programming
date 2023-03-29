@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 
 /**
  * leet - check the code
@@ -13,9 +12,9 @@ char *leet(char *s)
 	char *characters = "aAeEoOtTlL";
 	char *numbers = "43071";
 
-	while (i < strlen(s))
+	while (s[i] != '\0')
 	{
-		for (j = 0; j < strlen(characters); j++)
+		for (j = 0; characters[j] != '\0'; j++)
 		{
 			if (s[i] == characters[j])
 			{
