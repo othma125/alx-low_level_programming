@@ -1,0 +1,18 @@
+#include "main.h"
+
+/**
+ * _memset - check code
+ * @s: string
+ * @b: the char print
+ * @n: unsigned int
+ *
+ * Return: string
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	int i;
+
+	for (i = 0; i < n && s[i] !='\0'; i++)
+		s[i] = b;
+	return s;
+}
