@@ -12,7 +12,7 @@ int is_prime(int n, int d)
 		return (1);
 	else if (n % d == 0)
 		return (0);
-	return (is_prime(n, d % 2 == 0 ? d + 1 : d + 2));
+	return (is_prime(n, d == 2 ? d + 1 : d + 2));
 }
 /**
  * is_prime_number - check code
