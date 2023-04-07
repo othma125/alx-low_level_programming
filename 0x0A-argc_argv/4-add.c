@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * main - main function with argc and argv
@@ -10,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int sum = 0, converted, i = 1;
+	int sum = 0, converted, i = 1, j;
 
 	if (argc == 1)
 	{
@@ -18,11 +16,16 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	do {
-		converted = atoi(argv[i]);
-		if (converted == 0 && strcmp(argv[i], "0") != 0)
+		converted = 0;
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+			converted *= 10;
+			converted += argv[i][j] - 48;
 		}
 		sum += converted;
 		i++;
