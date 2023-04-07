@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * main - main function with argc and argv
@@ -9,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int mul = 1, i = 1;
+	int mul = 1, converted, i = 1;
 
 	if (argc == 1)
 	{
@@ -17,7 +18,13 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	do {
-		mul *= atoi(argv[i]);
+		converted = atoi(argv[i]);
+		if (converted == 0 && strcmp(argv[i], "0") != 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		mul *= converted;
 		i++;
 	} while (i < argc);
 	printf("%d\n", mul);
