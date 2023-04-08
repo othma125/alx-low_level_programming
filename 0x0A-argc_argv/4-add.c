@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 			converted *= 10;
-			converted += argv[i][j] - 48;
+			converted += argv[i][j] - '0';
 		}
 		sum += converted;
 		i++;
