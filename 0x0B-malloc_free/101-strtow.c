@@ -60,7 +60,6 @@ char **strtow(char *str)
 			words_lengths[words_count - 1]++;
 		i++;
 	} while (*(str + i) != '\0');
-	printf("%d\n",words_count);
 	words = (char **)malloc(sizeof(char *) * (1 + words_count));
 	if (words_count == 0 || words == NULL)
 		return (NULL);
