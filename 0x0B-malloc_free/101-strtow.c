@@ -41,6 +41,7 @@ void set_words(char **words, int *words_lengths, char *str)
 		}
 		i++;
 	} while (*(str + i) != '\0');
+	word[k] = NULL;
 }
 
 /**
