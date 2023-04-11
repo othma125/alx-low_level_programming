@@ -10,20 +10,17 @@
  */
 void set_words(char **words, int *words_lengths, char *str)
 {
-	int i = 0, j, condition = 1, k = 0;
+	int i = 0, j, k = 0;
 
 	do {
-		if (str[i] == ' ')
-			condition = 1;
-		else if (condition)
+		if (str[i] != ' ')
 		{
 			words[k] = (char *)malloc(1 + words_lengths[k]);
-			for (j = 0; str[i] != ' '; j++)
+			for (j = 0; j < words_lengths[k]; j++)
 			{
 				words[k][j] = str[i];
 				i++;
 			}
-			condition = 0;
 			k++;
 			continue;
 		}
@@ -63,8 +60,9 @@ char **strtow(char *str)
 			words_lengths[words_count - 1]++;
 		i++;
 	} while (*(str + i) != '\0');
-	words = words_count == 0 ? NULL : (char **)malloc(sizeof(char *) * (1 + words_count));
-	if (words == NULL)
+	printf("%d\n",words_count);
+	words = (char **)malloc(sizeof(char *) * (1 + words_count));
+	if (words_count == 0 || words == NULL)
 		return (NULL);
 	set_words(words, words_lengths, str);
 	free(words_lengths);
