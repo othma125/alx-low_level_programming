@@ -56,16 +56,17 @@ char **strtow(char *str)
 		else if (condition)
 		{
 			words_count++;
-			words_lengths[words_count - 1]++;
+			words_lengths[words_count - 1] = 1;
 			condition = 0;
 		}
 		else
 			words_lengths[words_count - 1]++;
 		i++;
 	} while (*(str + i) != '\0');
-	words = (char **)malloc(sizeof(char *) * (1 + words_count));
+	words = words_count == 0 ? NULL : (char **)malloc(sizeof(char *) * (1 + words_count));
 	if (words == NULL)
 		return (NULL);
 	set_words(words, words_lengths, str);
+	free(words_lengths);
 	return (words);
 }
