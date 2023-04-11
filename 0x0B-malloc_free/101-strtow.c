@@ -41,7 +41,7 @@ char **strtow(char *str)
 	char **words;
 	int words_count;
 	int condition = 1;
-	int i, j, *words_lengths;
+	int i, *words_lengths;
 
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
