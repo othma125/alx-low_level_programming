@@ -1,6 +1,21 @@
+#include "main.h"
 #include <stdlib.h>
-#include <string.h>
 
+/**
+ * len - returns length of a string
+ *@str: string
+ *
+ * Return: integer
+ */
+
+int len(char *str)
+{
+	int len = 0;
+
+	while (str[len])
+		len++;
+	return (len);
+}
 /**
  * set_words - check the code
  * @words: set of words
@@ -40,9 +55,9 @@ char **strtow(char *str)
 	int condition = 1;
 	int i, *words_lengths;
 
-	if (str == NULL || strlen(str) == 0)
+	if (str == NULL || len(str) == 0)
 		return (NULL);
-	words_lengths = (int *)malloc(sizeof(int) * (strlen(str) / 2));
+	words_lengths = (int *)malloc(sizeof(int) * (len(str) / 2));
 	if (words_lengths == NULL)
 		return (NULL);
 	i = 0;
