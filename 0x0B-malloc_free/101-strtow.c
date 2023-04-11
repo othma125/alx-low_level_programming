@@ -42,9 +42,9 @@ char **strtow(char *str)
 
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
-	words_lengths = (int *)malloc(sizeof(int) * (strlen(str) / 2));
 	if (words_lengths == NULL)
 		return (NULL);
+	words_lengths = (int *)malloc(sizeof(int) * (strlen(str) / 2));
 	i = 0;
 	words_count = 0;
 	do {
