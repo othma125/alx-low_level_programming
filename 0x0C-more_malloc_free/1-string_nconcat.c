@@ -1,12 +1,12 @@
 #include <stdlib.h>
 /**
  * length - integer
- *@str: string
+ *@s: string
  *
  * Return: length of the string
  */
 
-unsigned int len(char *s)
+unsigned int length(char *s)
 {
 	unsigned int len = 0;
 
@@ -24,7 +24,8 @@ unsigned int len(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1 = s1 == NULL ? 0 : length(s1), len2 = s2 == NULL ? 0 : length(s2);
+	unsigned int len1 = s1 == NULL ? 0 : length(s1);
+	unsigned int len2 = s2 == NULL ? 0 : length(s2);
 	unsigned int i;
 	char *s;
 
