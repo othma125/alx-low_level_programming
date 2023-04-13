@@ -1,5 +1,20 @@
 #include <stdlib.h>
-#include <string.h>
+/**
+ * length - integer
+ *@str: string
+ *
+ * Return: length of the string
+ */
+
+unsigned int len(char *s)
+{
+	unsigned int len = 0;
+
+
+	while (s != NULL && s[len])
+		len++;
+	return (len);
+}
 /**
  * string_nconcat - check code
  * @s1: string
@@ -9,7 +24,7 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int len1 = s1 == NULL ? 0 : strlen(s1), len2 = s2 == NULL ? 0 : strlen(s2);
+	unsigned int len1 = s1 == NULL ? 0 : length(s1), len2 = s2 == NULL ? 0 : length(s2);
 	unsigned int i;
 	char *s;
 
@@ -21,5 +36,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s[i] = s1[i];
 	for (i = 0; s2 != NULL && i < len2; i++)
 		s[i + len1] = s2[i];
+	s[i + len1] = '\0';
 	return (s);
 }
