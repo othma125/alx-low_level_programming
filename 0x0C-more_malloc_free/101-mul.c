@@ -11,7 +11,7 @@ int correct_number(char *s)
 {
 	int negative = 0, i;
 
-	for (i = 0; *(s + i) != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (i == 0 && s[i] == '-')
 		{
@@ -31,19 +31,14 @@ int correct_number(char *s)
  */
 char *infinite_add(char *n1, char *n2)
 {
-	unsigned int len1 = strlen(n1), len2 = strlen(n2);
-	int k, i = len1 - 1, j = len2 - 1, a, b, n = 0, size, sum, aux;
-	char *r;
+	int i = strlen(n1) - 1, j = strlen(n2) - 1, k = 0, a, b, n = 0, aux, sum;
+	char *r, c;
 
 	if (n1 == NULL || strcmp(n1, "0") == 0)
 		return (n2);
 	if (n2 == NULL || strcmp(n2, "0") == 0)
 		return (n1);
-	size = len1 > len2 ? len1 : len2;
-	size++;
-	if (len1 == len2)
-		size++;
-	r = (char *)malloc(size * sizeof(char));
+	r = (char *)malloc(sizeof(char));
 	if (r == NULL)
 		return (NULL);
 	while (i >= 0 || j >= 0)
@@ -52,17 +47,20 @@ char *infinite_add(char *n1, char *n2)
 		b = j < 0 ? 0 : n2[j] - '0';
 		sum = a + b + n;
 		n = sum / 10;
-		r[k] = '0' + sum % 10;
-		k++;
+		c = '0' + sum % 10;
+		r = strncat(r, &c, 1);
 		i--;
 		j--;
+		k++;
 	}
 	if (n > 0)
 	{
-		r[k] = '0' + n;
+		c = '0' + n;
+		r = strncat(r, &c, 1);
 		k++;
 	}
-	r[k] = '\0';
+	c = '\0';
+	r = strncat(r, &c, 1);
 	for (i = 0, j = k - 1; i < j; i++, j--)
 	{
 		aux = *(r + i);
