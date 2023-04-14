@@ -31,11 +31,21 @@ int correct_number(char *s)
  */
 char *infinite_add(char *n1, char *n2)
 {
-	int i = strlen(n1) - 1, j = strlen(n2) - 1;
-	int k = 0, a, b, n = 0, sum, aux;
+	unsigned int len1 = strlen(n1), len2 = strlen(n2);
+	int k, i = len1 - 1, j = len2 - 1, a, b, n = 0, size, sum, aux;
 	char *r;
 
-	r = (char *)malloc(i > j ? i + 2 : j + 2);
+	if (n1 == NULL || strcmp(n1, "0") == 0)
+		return (n2);
+	if (n2 == NULL || strcmp(n2, "0") == 0)
+		return (n1);
+	size = len1 > len2 ? len1 : len2;
+	size++;
+	if (len1 == len2)
+		size++;
+	r = (char *)malloc(size * sizeof(char));
+	if (r == NULL)
+		return (NULL);
 	while (i >= 0 || j >= 0)
 	{
 		a = i < 0 ? 0 : n1[i] - '0';
@@ -43,9 +53,9 @@ char *infinite_add(char *n1, char *n2)
 		sum = a + b + n;
 		n = sum / 10;
 		r[k] = '0' + sum % 10;
+		k++;
 		i--;
 		j--;
-		k++;
 	}
 	if (n > 0)
 	{
@@ -84,13 +94,17 @@ char *multiplication(char *n1, char *n2)
 	{
 		y = zero;
 		k = n1[i] - '0';
-		for (j = 0; j < k; j++)
-			y = infinite_add(y, n2);
-		for (j = 0; j < n; j++)
-			y = strcat(y, "0");
-		r = infinite_add(r, y);
+		if (k != 0)
+		{
+			for (j = 0; j < k; j++)
+				y = infinite_add(y, n2);
+			for (j = 0; j < n; j++)
+				y = strcat(y, "0");
+			r = infinite_add(r, y);
+		}
 		n++;
 	}
+	free(y);
 	return (r);
 }
 /**
