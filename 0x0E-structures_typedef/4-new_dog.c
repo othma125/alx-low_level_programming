@@ -51,10 +51,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	d->name = clone(name);
 	if (d->name == NULL)
+	{
+		free(d);
 		return (NULL);
+	}
 	d->age = age;
 	d->owner = clone(owner);
 	if (d->owner == NULL)
+	{
+		free(d->name);
+		free(d);
 		return (NULL);
+	}
 	return (d);
 }
