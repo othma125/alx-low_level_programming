@@ -22,10 +22,10 @@ int _strlen(char *str)
  */
 char *clone(char *src)
 {
-	int i;
+	int i, len = _strlen(src);
 	char *dest;
 
-	dest = (char *)malloc(_strlen(src) + 1);
+	dest = (char *)malloc(len + 1);
 	if (dest == NULL)
 		return (NULL);
 	for (i = 0; src[i] != '\0' ; i++)
@@ -44,6 +44,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
 
+	if (name == NULL || owner == NULL)
+		return (NULL);
 	d = (dog_t *)malloc(sizeof(dog_t));
 	if (d == NULL)
 		return (NULL);
