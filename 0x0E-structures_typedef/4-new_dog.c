@@ -44,14 +44,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
 
+	if (name == NULL || owner == NULL || age < 0)
+		return (NULL);
 	d = (dog_t *)malloc(sizeof(dog_t));
 	if (d == NULL)
 		return (NULL);
-	d->name = clone(name == NULL ? "" : name);
+	d->name = clone(name);
 	if (d->name == NULL)
 		return (NULL);
 	d->age = age;
-	d->owner = clone(owner == NULL ? "" : owner);
+	d->owner = clone(owner);
 	if (d->owner == NULL)
 		return (NULL);
 	return (d);
