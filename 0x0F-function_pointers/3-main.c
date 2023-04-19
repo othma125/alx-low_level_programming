@@ -13,22 +13,19 @@ int main(int argc, char *argv[])
 {
 	int a, b;
 	char *op;
+	int (*f)(int, int);
 
 	if (argc != 4)
 		exit(98);
 	a = atoi(argv[1]);
 	op = argv[2];
 	b = atoi(argv[3]);
-	if (get_op_func(op) == NULL || op[1] != '\0')
+	f = get_op_func(op);
+	if (f == NULL || ((*op == '/' || *op == '%') && b == 0))
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((*op == '/' || *op == '%') && b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	printf("%d\n", get_op_func(op)(a, b));
+	printf("%d\n", f(a, b));
 	return (0);
 }
