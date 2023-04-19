@@ -1,4 +1,4 @@
-#include "function pointers.h"
+#include "function_pointers.h"
 /**
  * print_name - check code
  * @name: name of the person
