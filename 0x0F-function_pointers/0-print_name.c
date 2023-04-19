@@ -1,5 +1,5 @@
 /**
- * print_name - print a name in uppercase
+ * print_name - check code
  * @name: name of the person
  * @f: function pointer
  * Return: Nothing.
