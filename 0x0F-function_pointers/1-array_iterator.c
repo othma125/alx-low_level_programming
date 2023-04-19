@@ -12,5 +12,5 @@ void array_iterator(int *a, size_t n, void (*action)(int))
 	unsigned int i;
 
 	for (i = 0; a != NULL && action != NULL && i < n; i++)
-		action(i);
+		action(a[i]);
 }
