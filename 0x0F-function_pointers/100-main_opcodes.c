@@ -26,14 +26,16 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-	for (i = 0; i <  n; i++)
+	while (i <  n)
 	{
 		opcode = *(unsigned char *)f;
 		printf("%.2x", opcode);
-		if (i == n - 1)
-			continue;
-		printf(" ");
-		f++;
+		if (i != n - 1)
+		{
+			printf(" ");
+			f++;
+		}
+		i++;
 	}
 	printf("\n");
 	return (0);

@@ -20,7 +20,10 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	a = atoi(argv[1]);
 	op = argv[2];
 	b = atoi(argv[3]);
-	f = get_op_func(op);
+	do {
+		f = get_op_func(op);
+		op++;
+	} while (f == NULL && *op != '\0');
 	if (f == NULL || op[1] != '\0')
 	{
 		printf("Error\n");
