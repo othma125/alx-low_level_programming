@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j;
 	va_list ap;
-	char *separator = ", ", *s = separator;
+	char *separator = ", ", *s = "";
 	printer printers[] = {
 	  {"c", print_char},
 	  {"i", print_int},
@@ -57,18 +57,15 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 	while (format != NULL && format[i] != '\0')
 	{
-		if (i > 0)
-			printf("%s", s);
 		j = 0;
 		while (printers[j].print != NULL && format[i] != *(printers[j].type))
 			j++;
 		if (printers[j].print != NULL)
 		{
+			printf("%s", s);
 			printers[j].print(ap);
 			s = separator;
 		}
-		else
-			s = "";
 		i++;
 	}
 	va_end(ap);
