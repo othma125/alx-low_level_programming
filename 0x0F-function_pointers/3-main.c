@@ -24,7 +24,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		action = get_op_func(op);
 		op++;
 	} while (action == NULL && op != '\0');
-	if (action == NULL)
+	if (action == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
