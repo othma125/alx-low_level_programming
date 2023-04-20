@@ -18,7 +18,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	action = get_op_func(op);
+	action = get_op_func(argv[2]);
 	if (action == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
