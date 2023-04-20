@@ -11,29 +11,24 @@
 
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
+	int (*action)(int, int);
 	int a, b;
-	char *op;
-	int (*f)(int, int);
 
 	if (argc != 4)
 		exit(98);
 	a = atoi(argv[1]);
-	op = argv[2];
 	b = atoi(argv[3]);
-	do {
-		f = get_op_func(op);
-		op++;
-	} while (f == NULL && *op != '\0');
-	if (f == NULL || op[1] != '\0')
+	action = get_op_func(argv[2]);
+	if (action == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((*op == '/' || *op == '%') && b == 0)
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && b == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
-	printf("%d\n", f(a, b));
+	printf("%d\n", action(a, b));
 	return (0);
 }
