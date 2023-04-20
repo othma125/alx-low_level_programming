@@ -2,10 +2,10 @@
 
 /**
  *op_add - check code
- *@a:the first number
- *@b:the second number
+ *@a: the first number
+ *@b: the second number
  *
- *Return:The sum of a and b
+ *Return:the sum
  */
 
 int op_add(int a, int b)
@@ -16,10 +16,10 @@ int op_add(int a, int b)
 
 /**
  *op_sub - check code
- *@a:The first number
- *@b:The second number
+ *@a: the first number
+ *@b: the second number
  *
- *Return: The Difference of a and b
+ *Return: the difference
  */
 int op_sub(int a, int b)
 {
@@ -28,10 +28,10 @@ int op_sub(int a, int b)
 
 /**
  *op_mul - check code.
- *@a:The first number
- *@b: The second number
+ *@a: the first number
+ *@b: the second number
  *
- *Return: The multiplication of a and b
+ *Return: the multiplication
  */
 int op_mul(int a, int b)
 {
@@ -41,10 +41,10 @@ int op_mul(int a, int b)
 
 /**
  *op_div - check code.
- *@a: The first number.
- *@b: The second number.
+ *@a: the first number
+ *@b: the second number
  *
- *Return: The quotient of a and b.
+ *Return: the quotient
  */
 int op_div(int a, int b)
 {
@@ -53,10 +53,10 @@ int op_div(int a, int b)
 
 /**
  *op_mod - check code.
- *@a: The first number.
- *@b: The second number.
+ *@a: the first number
+ *@b: the second number
  *
- *Return: The remainder of the division of a by b.
+ *Return: the remainder
  */
 int op_mod(int a, int b)
 {
