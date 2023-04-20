@@ -13,17 +13,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int (*action)(int, int);
 	int a, b;
-	char *op;
 
 	if (argc != 4)
 		exit(98);
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-	op = argv[2];
-	do {
-		action = get_op_func(op);
-		op++;
-	} while (action == NULL && op != '\0');
+	action = get_op_func(op);
 	if (action == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
