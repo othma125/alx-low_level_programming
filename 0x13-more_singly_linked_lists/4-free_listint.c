@@ -10,6 +10,8 @@ void free_listint(listint_t *h)
 {
 	listint_t *node;
 
+	if (h == NULL)
+		return;
 	if (h->next != NULL)
 	{
 		node = h->next;
