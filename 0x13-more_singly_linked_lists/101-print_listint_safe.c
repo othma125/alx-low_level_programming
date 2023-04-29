@@ -12,15 +12,15 @@ size_t print_listint_safe(const listint_t *h)
 	size_t count = 0;
 
 	if (h == NULL)
-		exit(98);
+		return (count);
 	while (h)
 	{
+		printf("[%p] %d\n", (void *)h, h->n);
 		if (h <= h->next)
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
-		printf("[%p] %d\n", (void *)h, h->n);
 		h = h->next;
 		count++;
 	}
