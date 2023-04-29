@@ -29,4 +29,5 @@ listint_t *reverse_listint(listint_t **);
 listint_t *find_listint_loop(listint_t *);
 size_t free_listint_safe(listint_t **);
 size_t print_listint_safe(const listint_t *);
+size_t free_listint_safe(listint_t **);
 #endif
