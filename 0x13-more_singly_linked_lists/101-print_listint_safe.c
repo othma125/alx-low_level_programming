@@ -22,7 +22,7 @@ size_t print_listint_safe(const listint_t *h)
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			exit(98);
 		}
-		if (nxt != NULL && (unsigned long)h < (unsigned long)nxt)
+		if (nxt != NULL && (unsigned long)h > (unsigned long)nxt)
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			exit(98);
