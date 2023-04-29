@@ -14,7 +14,8 @@ listint_t *find_listint_loop(listint_t *h)
 		return (NULL);
 	while (h != NULL)
 	{
-		if (prv != NULL && (unsigned long)h > (unsigned long)prv)
+		if ((prv != NULL && (unsigned long)h > (unsigned long)prv)
+		    || (prv == NULL && h == h->next))
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			return (h);
