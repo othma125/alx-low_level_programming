@@ -16,7 +16,8 @@ size_t print_listint_safe(const listint_t *h)
 		return (0);
 	while (h != NULL)
 	{
-		if (prv != NULL && (unsigned long)h > (unsigned long)prv)
+		if ((prv != NULL && (unsigned long)h > (unsigned long)prv)
+		    || (prv == NULL && h == h->next))
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			exit(98);
