@@ -18,7 +18,8 @@ size_t free_listint_safe(listint_t **h)
 	node = *h;
 	while (node != NULL)
 	{
-		if (prv != NULL && (unsigned long)node > (unsigned long)prv)
+		if ((prv != NULL && (unsigned long)node > (unsigned long)prv)
+		    || (prv == NULL && node == node->next))
 		{
 			printf("-> [%p] %d\n", (void *)node, node->n);
 			exit(98);
