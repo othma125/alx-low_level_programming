@@ -26,7 +26,7 @@ size_t print_listint_safe(const listint_t *h)
 		if (h <= node->next)
 		{
 			printf("-> [%p] %d\n", (void *)node, node->n);
-			break;
+			exit(98);
 		}
 		node = node->next;
 		count++;
