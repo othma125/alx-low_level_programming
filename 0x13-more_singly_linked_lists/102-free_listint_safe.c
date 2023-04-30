@@ -18,13 +18,11 @@ size_t free_listint_safe(listint_t **h)
 	while (node != NULL)
 	{
 		count++;
-		printf("[%p] %d\n", (void *)node, node->n);
 		if (node <= node->next)
 		{
 			tmp = node->next;
-			printf("-> [%p] %d\n", (void *)tmp, tmp->n);
 			free(node);
-			*h = NULL;
+			node = NULL;
 			break;
 		}
 		tmp = node;
