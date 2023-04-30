@@ -8,17 +8,18 @@
  */
 listint_t *find_listint_loop(listint_t *h)
 {
+	listint_t *loop_node = NULL;
+
 	if (h == NULL)
 		return (NULL);
 	while (h != NULL)
 	{
-		printf("[%p] %d\n", (void *)h, h->n);
-		if (h->n == 1 + (h->next)->n)
+		if (h->next == loop_node)
 		{
-			h = h->next;
-			printf("-> [%p] %d\n", (void *)h, h->n);
-			return (h);
+			printf("-> [%p] %d\n", (void *)loop_node, loop_node->n);
+			return (loop_node);
 		}
+		loop_node = loop_node == NULL && h->n == (h->next)->n + 1 ? h : loop_node;
 		h = h->next;
 	}
 	return (NULL);
