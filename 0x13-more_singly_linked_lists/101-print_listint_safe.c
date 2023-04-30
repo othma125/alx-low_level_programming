@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
+#define abs(x) ((x) < 0 ? (x) * -1 : (x))
 
 /**
  * print_listint_safe - check the code
@@ -8,14 +9,21 @@
  */
 size_t print_listint_safe(const listint_t *h)
 {
-	if (h == NULL)
-		return (0);
-	printf("[%p] %d\n", (void *)h, h->n);
-	if (h <= h->next)
+	size_t count = 0;
+	long int max = 0, dist;
+
+	while (h)
 	{
-		h = h->next;
-		printf("-> [%p] %d\n", (void *)h, h->n);
-		return (1);
+		count++;
+		printf("[%p] %d\n", (void *)h, h->n);
+		dist = abs(h - h->next);
+		max = dist > max ? dist : max;
+		if (dist < max)
+		{
+			printf("-> [%p] %d\n", (void *)h, h->n);
+			break;
+		}
+	        h = h->next;
 	}
-	return (1 + print_listint_safe(h->next));
+	return (count);
 }
