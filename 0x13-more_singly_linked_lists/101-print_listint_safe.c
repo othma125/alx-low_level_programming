@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_listint_safe - check the code
@@ -20,7 +21,7 @@ size_t print_listint_safe(const listint_t *h)
 		{
 			h = h->next;
 			printf("-> [%p] %d\n", (void *)h, h->n);
-			break;
+			exit(98);
 		}
 		h = h->next;
 	}
