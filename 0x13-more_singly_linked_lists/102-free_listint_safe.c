@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * free_listint_safe - check the code
@@ -20,13 +21,15 @@ size_t free_listint_safe(listint_t **h)
 		printf("[%p] %d\n", (void *)node, node->n);
 		if (node <= node->next)
 		{
-			node = node->next;
-			printf("-> [%p] %d\n", (void *)node, node->n);
+			tmp = node->next;
+			printf("-> [%p] %d\n", (void *)tmp, tmp->n);
+			free(node);
+			*h = NULL;
 			break;
 		}
 		tmp = node;
-		free(tmp);
 		node = node->next;
+		free(tmp);
 	}
 	*h = NULL;
 	return (count);
