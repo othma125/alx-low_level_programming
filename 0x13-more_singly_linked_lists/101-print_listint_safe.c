@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
  * print_listint_safe - check the code
@@ -22,7 +21,7 @@ size_t print_listint_safe(const listint_t *h)
 			count += h < h->next ? 1 : 0;
 			h = h->next;
 			printf("-> [%p] %d\n", (void *)h, h->n);
-			exit(98);
+			break;
 		}
 		h = h->next;
 	}
