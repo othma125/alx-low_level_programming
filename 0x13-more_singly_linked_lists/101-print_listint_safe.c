@@ -8,6 +8,8 @@
  */
 size_t print_listint_safe(const listint_t *h)
 {
+	if (h == NULL)
+		return (0);
 	printf("[%p] %d\n", (void *)h, h->n);
 	if (h <= h->next)
 	{
