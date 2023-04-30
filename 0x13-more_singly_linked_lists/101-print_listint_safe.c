@@ -23,7 +23,7 @@ size_t print_listint_safe(const listint_t *h)
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
-	        h = h->next;
+		h = h->next;
 	}
 	return (count);
 }
