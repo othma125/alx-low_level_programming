@@ -18,7 +18,6 @@ size_t print_listint_safe(const listint_t *h)
 		printf("[%p] %d\n", (void *)h, h->n);
 		if (h <= h->next)
 		{
-			count += h < h->next ? 1 : 0;
 			h = h->next;
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
