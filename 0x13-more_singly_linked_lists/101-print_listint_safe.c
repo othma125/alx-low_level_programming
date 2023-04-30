@@ -17,12 +17,12 @@ size_t print_listint_safe(const listint_t *h)
 		count++;
 		printf("[%p] %d\n", (void *)h, h->n);
 		dist = abs(h - h->next);
-		max = dist > max ? dist : max;
 		if (dist < max)
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
+		max = dist > max ? dist : max;
 		h = h->next;
 	}
 	return (count);
