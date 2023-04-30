@@ -15,7 +15,7 @@ size_t print_listint_safe(const listint_t *h)
 	{
 		h = h->next;
 		printf("-> [%p] %d\n", (void *)h, h->n);
-		return (0);
+		return (1);
 	}
 	return (1 + print_listint_safe(h->next));
 }
