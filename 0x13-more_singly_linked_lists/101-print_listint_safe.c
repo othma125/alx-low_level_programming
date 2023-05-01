@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 #define abs(x) ((x) < 0 ? ((x) * -1) : (x))
 /**
