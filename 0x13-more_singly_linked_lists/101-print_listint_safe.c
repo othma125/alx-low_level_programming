@@ -15,7 +15,7 @@ int detect_cycle(memory_block *mbs, const listint_t *node, int m)
 
 	for (i = 0; i <= m; i++)
 	{
-		if ((mbs[i].index <= 0 && mbs[i].ptr - node <= -2 * mbs[i].index)
+		if ((mbs[i].index <= 0 && node - mbs[i].ptr <= -2 * mbs[i].index)
 		    || (mbs[i].index >= 0 && mbs[i].ptr - node <= 2 * mbs[i].index))
 			return (i);
 	}
@@ -48,10 +48,10 @@ size_t print_listint_safe(const listint_t *h)
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
-		if (dist == 2 && mbs[m].index <= 0)
-			mbs[m].index--;
-		else if (dist == -2 && mbs[m].index >= 0)
+		if (dist == 2 && mbs[m].index >= 0)
 			mbs[m].index++;
+		else if (dist == -2 && mbs[m].index <= 0)
+			mbs[m].index--;
 		else
 		{
 			m++;
