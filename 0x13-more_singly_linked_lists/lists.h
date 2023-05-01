@@ -41,6 +41,6 @@ size_t free_listint_safe(listint_t **);
 typedef struct
 {
 	const listint_t *ptr;
-	unsigned int index;
+	int index;
 } memory_block;
 #endif
