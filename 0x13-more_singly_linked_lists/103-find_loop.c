@@ -8,16 +8,26 @@
  */
 listint_t *find_listint_loop(listint_t *h)
 {
-	listint_t *loop_node = NULL;
+	listint_t *slow, *fast;
 
-	if (h == NULL)
+	if (h == NULL || h->next == NULL)
 		return (NULL);
-	while (h != NULL)
+	slow = h->next;
+	fast = slow->next;
+	while (fast)
 	{
-		if (h->next == loop_node)
-			return (loop_node);
-		loop_node = loop_node == NULL && h->n == (h->next)->n + 1 ? h : loop_node;
-		h = h->next;
+		if (slow == fast)
+		{
+			slow = h;
+			while (slow != fast)
+			{
+				slow = slow->next;
+				fast = fast->next;
+			}
+			return (slow);
+		}
+		slow = slow->next;
+		fast = (fast->next)->next;
 	}
 	return (NULL);
 }
