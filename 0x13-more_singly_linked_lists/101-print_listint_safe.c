@@ -9,16 +9,16 @@
  * @m: blocks count
  * Return: boolean
  */
-int detect_cycle(memory_block *mbs, const listint_t *node, unsigned int m)
+int detect_cycle(memory_block *mbs, const listint_t *node, int m)
 {
-	unsigned int i;
+	int i;
 
 	for (i = 0; i <= m; i++)
 	{
-		if (abs(mbs[i].ptr - node) <= 2 * mbs[i].index)
-			return (1);
+		if ((mbs[i].index >= 0 && mbs[i].ptr - node <= 2 * mbs[i].index) || (mbs[i].index < 0 && mbs[i].ptr - node >= 2 * mbs[i].index))
+			return (i);
 	}
-	return (0);
+	return (-1);
 }
 /**
  * print_listint_safe - check the code
@@ -28,9 +28,9 @@ int detect_cycle(memory_block *mbs, const listint_t *node, unsigned int m)
 size_t print_listint_safe(const listint_t *h)
 {
 	size_t count = 0;
-	unsigned int m = 0;
+	int m = 0;
 	unsigned long dist;
-	memory_block mbs[100];
+	memory_block mbs[10];
 
 	if (!h)
 		return (count);
@@ -40,15 +40,17 @@ size_t print_listint_safe(const listint_t *h)
 	{
 		count++;
 		printf("[%p] %d\n", (void *)h, h->n);
-		dist = abs(h - h->next);
+		dist = h - h->next;
 		h = h->next;
-		if (detect_cycle(mbs, h, m))
+		if (detect_cycle(mbs, h, m) > 0)
 		{
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
 		if (dist == 2)
 			mbs[m].index++;
+		else if (dist == -2)
+			mbs[m].index--;
 		else
 		{
 			m++;
