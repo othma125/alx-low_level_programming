@@ -48,10 +48,10 @@ size_t print_listint_safe(const listint_t *h)
 			printf("-> [%p] %d\n", (void *)h, h->n);
 			break;
 		}
-		if (dist == 2 && mbs[m].index >= 0)
-			mbs[m].index++;
-		else if (dist == -2 && mbs[m].index <= 0)
+		if (dist == 2 && mbs[m].index <= 0)
 			mbs[m].index--;
+		else if (dist == -2 && mbs[m].index >= 0)
+			mbs[m].index++;
 		else
 		{
 			m++;
