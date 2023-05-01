@@ -15,7 +15,7 @@ int detect_cycle(memory_block *mbs, const listint_t *node, unsigned int m)
 
 	for (i = 0; i <= m; i++)
 	{
-		if (abs(mbs[i].ptr - node) <= 2 * mbs[i].count)
+		if (abs(mbs[i].ptr - node) <= 2 * mbs[i].index)
 			return (1);
 	}
 	return (0);
@@ -34,7 +34,7 @@ size_t print_listint_safe(const listint_t *h)
 
 	if (!h)
 		return (count);
-	mbs[m].count = 0;
+	mbs[m].index = 0;
 	mbs[m].ptr = h;
 	while (h)
 	{
@@ -48,11 +48,11 @@ size_t print_listint_safe(const listint_t *h)
 			break;
 		}
 		if (dist == 2)
-			mbs[m].count++;
+			mbs[m].index++;
 		else
 		{
 			m++;
-			mbs[m].count = 0;
+			mbs[m].index = 0;
 			mbs[m].ptr = h;
 		}
 	}
