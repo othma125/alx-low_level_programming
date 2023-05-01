@@ -30,7 +30,7 @@ size_t print_listint_safe(const listint_t *h)
 	size_t count = 0;
 	unsigned int m = 0;
 	unsigned long dist;
-	memory_block mbs[10];
+	memory_block mbs[100];
 
 	if (!h)
 		return (count);
