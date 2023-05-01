@@ -30,4 +30,17 @@ listint_t *find_listint_loop(listint_t *);
 size_t free_listint_safe(listint_t **);
 size_t print_listint_safe(const listint_t *);
 size_t free_listint_safe(listint_t **);
+/**
+ * memory blocks structure - it counts how many blocks
+ * are allocated after a pointer.
+ * @ptr: pointer
+ * @count: blocks count, the size of every block
+ * equalse to sizeof(listint_t))
+ * Return: list size
+ */
+typedef struct
+{
+	const listint_t *ptr;
+	unsigned int count;
+} memory_block;
 #endif
