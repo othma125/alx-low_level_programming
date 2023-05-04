@@ -18,4 +18,5 @@ int set_bit(unsigned long int *n, unsigned int i)
 	for (; j < i; j++)
 		k *= 2;
 	*n += k;
+	return (1);
 }
