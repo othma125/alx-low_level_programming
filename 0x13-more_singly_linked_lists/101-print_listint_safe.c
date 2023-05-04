@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdio.h>
-#include <limits.h>
 
 /**
  * detect_cycle - check the code
@@ -49,7 +48,7 @@ size_t print_listint_safe(const listint_t *h)
 {
 	size_t cycle = detect_cycle(h), count = 0;
 
-	while (h && count < (cycle == 0 ? INT_MAX : cycle))
+	while (h && count < (cycle == 0 ? count + 1 : cycle))
 	{
 		count++;
 		printf("[%p] %d\n", (void *)h, h->n);
