@@ -20,23 +20,24 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->key = strdup(key);
 	if (!new->key)
 	{
-		free(new);
+		free(new->key), free(new);
 		return (0);
 	}
 	new->value = strdup(value);
 	if (!new->value)
 	{
+		free(new->key), free(new->value);
 		free(new);
 		return (0);
 	}
 	new->next = NULL;
 	index = key_index((unsigned char *)key, ht->size);
 	if (!ht->array[index])
-		ht->array[index] = new;
-	else
 	{
-		new->next = ht->array[index];
 		ht->array[index] = new;
+		return (1);
 	}
+	new->next = ht->array[index];
+	ht->array[index] = new;
 	return (1);
 }
