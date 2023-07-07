@@ -69,6 +69,39 @@ void shash_table_delete(shash_table_t *ht)
 	free(ht);
 }
 /**
+ * insert_new_node - check the code
+ * @ht: hash table
+ * @new: hash node
+ * Return: nothing
+ */
+void insert_new_node(shash_table_t *ht, shash_node_t *new)
+{
+	shash_node_t *tmp;
+
+	if (!ht->shead)
+	{
+		new->sprev = NULL, new->snext = NULL;
+		ht->shead = new, ht->stail = new;
+	}
+	else if (strcmp(ht->shead->key, new->key) > 0)
+	{
+		new->sprev = NULL, new->snext = ht->shead;
+		ht->shead->sprev = new, ht->shead = new;
+	}
+	else
+	{
+		tmp = ht->shead;
+		while (tmp->snext != NULL && strcmp(tmp->snext->key, new->key) < 0)
+			tmp = tmp->snext;
+		new->sprev = tmp, new->snext = tmp->snext;
+		if (!tmp->snext)
+			ht->stail = new;
+		else
+			tmp->snext->sprev = new;
+		tmp->snext = new;
+	}
+}
+/**
  * shash_table_set - check the code
  * @ht: hash table
  * @key: string key
@@ -109,40 +142,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->next = ht->array[index], ht->array[index] = new;
 	insert_new_node(ht, new);
 	return (1);
-}
-/**
- * insert_new_node - check the code
- * @ht: hash table
- * @new: hash node
- * Return: nothing
- */
-void insert_new_node(shash_table_t *ht, shash_node_t *new)
-{
-	shash_node_t *tmp;
-
-	if (!ht->shead)
-	{
-		new->sprev = NULL, new->snext = NULL;
-		ht->shead = new, ht->stail = new;
-	}
-	else if (strcmp(ht->shead->key, key) > 0)
-	{
-		new->sprev = NULL, new->snext = ht->shead;
-		ht->shead->sprev = new, ht->shead = new;
-	}
-	else
-	{
-		tmp = ht->shead;
-		while (tmp->snext != NULL && strcmp(tmp->snext->key, key) < 0)
-			tmp = tmp->snext;
-		new->sprev = tmp, new->snext = tmp->snext;
-		if (!tmp->snext)
-			ht->stail = new;
-		else
-			tmp->snext->sprev = new;
-		tmp->snext = new;
-	}
-	
 }
 /**
  * shash_table_print - check the code
