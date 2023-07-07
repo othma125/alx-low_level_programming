@@ -91,7 +91,7 @@ void insert_new_node(shash_table_t *ht, shash_node_t *new)
 	else
 	{
 		tmp = ht->shead;
-		while (tmp->snext != NULL && strcmp(tmp->snext->key, new->key) <= 0)
+		while (tmp->snext != NULL && strcmp(tmp->snext->key, new->key) < 0)
 			tmp = tmp->snext;
 		new->sprev = tmp, new->snext = tmp->snext;
 		if (!tmp->snext)
