@@ -160,7 +160,7 @@ void shash_table_print(const shash_table_t *ht)
 	{
 		if (ht->shead != tmp)
 			printf(", ");
-		printf("'%s': '%s'", tmp->key, shash_table_get(ht, tmp->key));
+		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->snext;
 	}
 	printf("}\n");
@@ -182,7 +182,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	{
 		if (ht->stail != tmp)
 			printf(", ");
-		printf("'%s': '%s'", tmp->key, shash_table_get(ht, tmp->key));
+		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->sprev;
 	}
 	printf("}\n");
