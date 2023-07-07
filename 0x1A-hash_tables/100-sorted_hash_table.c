@@ -127,13 +127,12 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new = malloc(sizeof(shash_node_t *));
 	if (!new)
 		return (0);
-	new->key = malloc(1 + strlen(key));
+	new->key = strdup(key);
 	if (!new->key)
 	{
 		free(new);
 		return (0);
 	}
-	strcpy(new->key, key);
 	new->value = strdup(value);
 	if (!new->value)
 	{
