@@ -184,7 +184,6 @@ void shash_table_print_rev(const shash_table_t *ht)
 	{
 		if (ht->stail != tmp)
 			printf(", ");
-		printf("%lu ", strlen(tmp->key));
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->sprev;
 	}
