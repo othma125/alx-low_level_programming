@@ -160,8 +160,6 @@ void shash_table_print(const shash_table_t *ht)
 	{
 		if (ht->shead != tmp)
 			printf(", ");
-		printf("%lu ", strlen(tmp->key));
-		printf("%lu ", strlen(tmp->value));
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->snext;
 	}
