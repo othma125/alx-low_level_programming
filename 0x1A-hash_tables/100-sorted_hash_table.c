@@ -78,7 +78,7 @@ void shash_table_delete(shash_table_t *ht)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *new;
+	shash_node_t *new, *tmp;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
