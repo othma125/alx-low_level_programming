@@ -151,7 +151,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *tmp;
-	int c = 0;
 
 	if (ht == NULL)
 		return;
@@ -159,11 +158,10 @@ void shash_table_print(const shash_table_t *ht)
 	tmp = ht->shead;
 	while (tmp)
 	{
-		if (c)
+		if (ht->shead != tmp)
 			printf(", ");
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->snext;
-		c = 1;
 	}
 	printf("}\n");
 }
@@ -175,7 +173,6 @@ void shash_table_print(const shash_table_t *ht)
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *tmp;
-	int c = 0;
 
 	if (ht == NULL)
 		return;
@@ -183,11 +180,10 @@ void shash_table_print_rev(const shash_table_t *ht)
 	tmp = ht->stail;
 	while (tmp)
 	{
-		if (c)
+		if (ht->stail != tmp)
 			printf(", ");
 		printf("'%s': '%s'", tmp->key, tmp->value);
 		tmp = tmp->sprev;
-		c = 1;
 	}
 	printf("}\n");
 }
