@@ -83,7 +83,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
 	index = key_index((unsigned char *)key, ht->size);
-	new = ht->array[index];
 	for (new = ht->array[index]; new; new = new->next)
 	{
 		if (!strcmp(key, new->key))
