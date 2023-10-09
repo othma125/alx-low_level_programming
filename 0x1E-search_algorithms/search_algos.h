@@ -9,4 +9,5 @@ int binary_search(int *, size_t, int);
 int jump_search(int *, size_t, int);
 int interpolation_search(int *, size_t, int);
 int exponential_search(int *, size_t, int);
+int advanced_binary(int *, size_t, int);
 #endif
