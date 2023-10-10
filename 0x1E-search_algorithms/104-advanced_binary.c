@@ -29,7 +29,7 @@ int advanced_binary(int *array, size_t size, int value)
 			else
 				return (k);
 		}
-		else if (array[k] <= value)
+		else if (array[k] < value)
 			i = k + 1;
 		else
 			j = k - 1;
