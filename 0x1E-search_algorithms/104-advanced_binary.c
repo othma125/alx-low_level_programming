@@ -24,7 +24,7 @@ int advanced_binary(int *array, size_t size, int value)
 		k = i + (j - i) / 2;
 		if (array[k] == value)
 		{
-			if (array[k - 1] == value)
+			if (array[k - 1] == value && k != i)
 				j = k;
 			else
 				return (k);
