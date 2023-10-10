@@ -20,7 +20,7 @@ int advanced_binary(int *array, size_t size, int value)
 	{
 		printf("Searching in array: ");
 		for (k = i; k <= j; k++)
-			printf("%d%s", array[k], ((k != j)) ? ", " : "\n");
+			printf("%d%s", array[k], (k < j) ? ", " : "\n");
 		k = (j + i) / 2;
 		if (array[k] == value)
 		{
