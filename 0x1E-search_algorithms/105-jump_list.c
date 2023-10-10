@@ -14,7 +14,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t i = 0, j, k = sqrt(size);
 	listint_t *node = list;
 
-	if (list == NULL)
+	if (!list || size == 0)
 		return (NULL);
 	while (node->next && node->n < value)
 	{
@@ -29,10 +29,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		node = node->next;
 	while (node->next && node->n < value)
 	{
-		printf("Value checked at index [%lu] = [%d]\n", j, node->n);
+		printf("Value checked at index [%lu] = [%d]\n", node->index, node->n);
 		node = node->next;
-		j++;
 	}
-	printf("Value checked at index [%lu] = [%d]\n", j, node->n);
+	printf("Value checked at index [%lu] = [%d]\n", node->index, node->n);
 	return ((node->n == value) ? node : NULL);
 }
