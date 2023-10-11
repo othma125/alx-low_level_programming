@@ -15,7 +15,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	listint_t *node = list;
 	listint_t *tmp;
 
-	if (!list || size == 0)
+	if (!list)
 		return (NULL);
 	while (node->next && node->n < value)
 	{
