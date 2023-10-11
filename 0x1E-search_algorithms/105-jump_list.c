@@ -13,12 +13,14 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 {
 	size_t i = 0, j, k = sqrt(size);
 	listint_t *node = list;
+	listint_t *tmp;
 
 	if (!list || size == 0)
 		return (NULL);
 	while (node->next && node->n < value)
 	{
 		i += k;
+		tmp = node;
 		for (j = 0; j < k && node->next; j++)
 		{
 			node = node->next;
@@ -28,11 +30,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		printf("Value checked at index [%lu] = [%d]\n", node->index, node->n);
 	}
 	printf("Value found between indexes [%lu] and [%lu]\n", i - k, node->index);
-	while (node->n < value)
+	while (tmp->n < value)
 	{
-		printf("Value checked at index [%lu] = [%d]\n", node->index, node->n);
-		node = node->next;
+		printf("Value checked at index [%lu] = [%d]\n", tmp->index, tmp->n);
+		tmp = tmp->next;
 	}
-	printf("Value checked at index [%lu] = [%d]\n", node->index, node->n);
-	return ((node->n == value) ? node : NULL);
+	printf("Value checked at index [%lu] = [%d]\n", tmp->index, tmp->n);
+	return ((tmp->n == value) ? tmp : NULL);
 }
