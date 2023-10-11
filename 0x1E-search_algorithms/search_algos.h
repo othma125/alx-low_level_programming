@@ -26,7 +26,7 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 listint_t *jump_list(listint_t *, size_t, int);
-listint_t *create_list(const int *, size_t);
+listint_t *create_list(int *, size_t);
 void free_listint(listint_t *);
 void print_listint(const listint_t *);
 /**
